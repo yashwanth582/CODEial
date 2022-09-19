@@ -1,0 +1,11 @@
+first we created index.js file
+in console of vscode we did npm init
+after giving basic details package.json file is created
+then we created multiple files- config controllers models routes views 
+ npm intall express - it downloads the latest version of the express in the folder  
+ //in index.js file we import express and we'll make app to listen to the server port 8000 in this case
+ //we'll do - git init
+ //git commit -m "First commit: create the directory structure and setup express server"
+ //cd .. then git log
+ //we'll create index.js in routes and import expess and call  the router
+ home_controller in controllers file
