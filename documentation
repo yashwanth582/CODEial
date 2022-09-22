@@ -9,3 +9,20 @@ then we created multiple files- config controllers models routes views
  //cd .. then git log
  //we'll create index.js in routes and import expess and call  the router
  home_controller in controllers file
+ index.js to routes/index.js
+ if required index.js users.js
+ from above scripts we can move to controllers/home_controllers or users_controllers
+
+ now we are creating layouts 
+ npm install express-ejs-layouts
+
+ how layouts work
+ we have create a file named layouts.ejs in views
+ it automatically goes to layouts.ejs first
+ it acts as a main page with variables 
+ when ever we type ./home or /profile the variable data is filled and rendered to the html page
+ 
+ next is setting up mongoDb that is database
+
+ we creted assets folder and 3 folders in it
+ 
