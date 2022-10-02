@@ -1,8 +1,14 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const app  = express();
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
-
+const db = require('./config/mongoose')
+app.use(express.urlencoded());
+/* is a method inbuilt in express to recognize the incoming 
+Request Object as strings or arrays. This method is called as a 
+middleware in your application using the code*/
+app.use(cookieParser());
 app.use(express.static('./assets'));  
 
 app.use(expressLayouts);

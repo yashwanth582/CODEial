@@ -26,3 +26,22 @@ then we created multiple files- config controllers models routes views
 
  we creted assets folder and 3 folders in it
  
+ mongoDb setup - create a file monogoose.js in config
+ npm intall mongoose
+  after exporting the mongoose file import in main index.js file
+
+we created two files in views user_sign_in page and user_sign_up page
+In users controller export two properties signUp and signIn 
+And in routes --> router.get('/sign-up', usersController.signUp);
+added two features in users_controller create and create session
+We created two forms in user_sign_in and up pages
+Now we have to add cookie parses to the main index file
+npm install cookie-parser in index file
+import cookie-parser in index.js file that is using require
+we imported user from models in users_controller.js  
+We created a post in users.js when ever create function is called the following data is posted. that is present in the users_controller where we fill the create function completely
+We commited till signup page
+(git checkout -b manual-local-auth) we have changed the branch.we'll return to the sign up after completing the manual-local-auth
+
+we have changed the content in the user_controller profile content
+ before when ever user logs in into account and profile page is opened, it was possible that user can go back to sign in page again. which should'nt be happened. so check in the cookies that if user is presernt in it we let the account to access the profile
