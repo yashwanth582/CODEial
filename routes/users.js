@@ -15,4 +15,5 @@ router.post('/create-session',passport.authenticate(
     {failureRedirect: '/users/sign-in'},
 ),usersController.createSession);
 // above line post create-session is forms action in user_sign_in.ejs file - when we submit the data of the form the post method is invoked  
+router.get('/sign-out', usersController.destroySession)
 module.exports = router;
