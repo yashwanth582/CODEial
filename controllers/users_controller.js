@@ -1,25 +1,27 @@
 const User = require('../models/user')
 
 module.exports.profile = function(req, res){
-     if(req.user._id){
+    //  if(req.user._id){
         
-            User.findById(req.user._id, function(err, user){
+    //         User.findById(req.user._id, function(err, user){
                 
-                if(user){
-                    return res.render('profile',{
-                        title:"Profile",
-                        user:user
-                    }); 
-                }
-                else{
-                return res.redirect('/users/sign-in')
-                }
-            })
-     }
-     else{
-        return res.redirect('/users/sign-in'); 
-     }
-    
+    //             if(user){
+    //                 return res.render('profile',{
+    //                     title:"Profile",
+    //                     user:user
+    //                 }); 
+    //             }
+    //             else{
+    //             return res.redirect('/users/sign-in')
+    //             }
+    //         })
+    //  }
+    //  else{
+    //     return res.redirect('/users/sign-in'); 
+    //  }
+    return res.render('profile', {
+        title: 'User Profile'
+    })
 }
 // render the sign up and in page
 module.exports.signUp = function(req, res){

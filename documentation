@@ -45,3 +45,5 @@ We commited till signup page
 
 we have changed the content in the user_controller profile content
  before when ever user logs in into account and profile page is opened, it was possible that user can go back to sign in page again. which should'nt be happened. so check in the cookies that if user is presernt in it we let the account to access the profile
+ version 5 of
+ npm i node-sass-middleware-5
