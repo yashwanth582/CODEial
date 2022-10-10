@@ -5,5 +5,6 @@ const homeController  = require('../controllers/home_controller')
 console.log('router loaded');
 // router is accessing home object from home controllers in controllers
 router.get('/', homeController.home);
-router.use('/users', require('./users'))
+router.use('/users', require('./users'));
+router.use('/posts', require('./posts'));
 module.exports = router;
