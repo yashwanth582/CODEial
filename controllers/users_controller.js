@@ -19,6 +19,7 @@ module.exports.profile = function(req, res){
     //  else{
     //     return res.redirect('/users/sign-in'); 
     //  }
+    // console.log(req.user._id)
     return res.render('profile', {
         title: 'User Profile'
     })
