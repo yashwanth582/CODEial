@@ -3,8 +3,8 @@ const router  = express.Router();
 const passport = require('passport');
 const usersController =  require('../controllers/users_controller');
  
-router.get('/profile',passport.checkAuthenticated,usersController.profile)
-                                 
+router.get('/profile/:id',passport.checkAuthenticated,usersController.profile)
+router.post('/update/:id', passport.checkAuthenticated, usersController.update)                               
 router.get('/sign-up', usersController.signUp);
 router.get('/sign-in', usersController.signIn);
 // in above all codes after get('/sign-up') means when we type the keyword sign-up in the browser we need to render the folllowing page which is userController.signUp
