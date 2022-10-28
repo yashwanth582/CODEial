@@ -70,7 +70,7 @@ module.exports.destroySession = function(req, res){
     req.logout(function(err) {
         if (err) { return next(err); }
         req.flash('success', 'You have logged out')
-
+// sending the flash message
         res.redirect('/');
       });
 }
