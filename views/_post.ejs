@@ -1,9 +1,9 @@
-<li>
+<li id="posts-<%= post._id %>">
     <p> 
         <!-- show delete button visible only if user is logged in.only  Owner of the post should be able to see delete button for the particular post   -->
         <% if(locals.user && locals.user.id == post.user.id) {%>
         <small>
-          <a href="/posts/destroy/<%= post.id %>">X</a>  
+          <a class="delete-post-button" href="/posts/destroy/<%= post.id %>">X</a>  
         </small>
         <%} %>
     <%= post.content %>

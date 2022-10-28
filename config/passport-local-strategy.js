@@ -4,16 +4,18 @@ const User = require('../models/user');
 
 
 passport.use(new LocalStrategy({
-    usernameField: 'email'
+    usernameField: 'email',
+    passReqToCallback: true
+    // below function 1st arguement is req ... because we setRequestToCallback to true
 },
-function(email, password, done){
+function(req, email, password, done){
     User.findOne({email: email}, function(err, user){
         if(err){
-            console.log('Error in finding user --> Passport');
-            return done(err);
+            req.flash('error',err)
+             return done(err);
         }
         if(!user || user.password!=password){
-            console.log("Invalid username/password");
+            req.flash('error', 'Invalid Username/Password');
             return done(null, false);
         }
         return done(null, user);
