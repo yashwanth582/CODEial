@@ -16,6 +16,7 @@ module.exports.create = async function(req, res){
             post.comments.push(comment);
             post.save();
             if (req.xhr){
+                // xml http request
                 // Similar for comments to fetch the user's id!
                 comment = await comment.populate('user', 'name').execPopulate();
     
