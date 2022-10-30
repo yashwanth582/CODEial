@@ -25,6 +25,8 @@ Request Object as strings or arrays. This method is called as a
 middleware in your application using the code*/
 app.use(cookieParser());
 app.use(express.static('./assets'));  
+// make the uploads paths available to browser
+app.use('/uploads', express.static(__dirname + '/uploads'))
 
 app.use(expressLayouts);
 // extact style and scripts from subpages into the layout 
