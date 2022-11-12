@@ -16,4 +16,6 @@ router.post('/create-session',passport.authenticate(
 ),usersController.createSession);
 // above line post create-session is forms action in user_sign_in.ejs file - when we submit the data of the form the post method is invoked  
 router.get('/sign-out', usersController.destroySession)
+router.get('/auth/google', passport.authenticate('google', {scope:['profile','email']}));
+router.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/users/sign-in'}), usersController.createSession);
 module.exports = router;
