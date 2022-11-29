@@ -13,6 +13,7 @@ function(accessTocken, refreshToken, profile, done){
     // find a user 
     User.findOne({email: profile.emails[0].value}).exec(function(err, user){
         if(err){ console.log('error in google strategy-passport', err); return;}
+       console.log(accessTocken, refreshToken);
         console.log(profile);
         // if found , set this user as req.user
         if(user){
