@@ -84,7 +84,7 @@ let deletePost = function(deleteLink){
             type: 'get',
             url: $(deleteLink).prop('href'),
             success: function(error){
-                $(`#post-${data.data.post_id}`) 
+                $(`#post-${data.data.post_id}`).remove();
                  
             
             }, error: function(error){
