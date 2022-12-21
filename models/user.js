@@ -33,7 +33,7 @@ let storage = multer.diskStorage({
     }
 });
 // static 
-userSchema.statics.uploadedAvatar = multer({storage: storage}).single('avatar')
+userSchema.statics.uploadedAvatar = multer({storage: storage}).single('avatar');
 // in above function at last we wrote (.single('avatar')) because we are only uploading single file and type is avatar 
 userSchema.statics.avatarPath = AVATHAR_PATH;
 const user = mongoose.model('user', userSchema);
