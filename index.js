@@ -1,4 +1,5 @@
 const express = require('express');
+const env = require('./config/environment')
 const cookieParser = require('cookie-parser');
 const app  = express();
 const port = 8000;
@@ -18,17 +19,18 @@ const cors = require('cors');
 const chatServer = require('http').Server(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 // Magic Lines
-Server.prependListener("request", (req, res) => {
+chatServer.prependListener("request", (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
  });
 chatServer.listen(5000);
 console.log('chat server is listening on port 5000');
 //setup the chat server to be used with socket.io
+const path = require('path');
 
 app.use(cors());
 app.use(sassMiddleware({
-    src: './assets/scss',
-    dest: './assets/css',
+    src: path.join(__dirname, env.asset_path,'./scss'),
+    dest: path.join(__dirname, env.asset_path,'./css'),
     debug: true,
     outputStyle: 'extended',
     prefix: '/css'
@@ -38,7 +40,7 @@ app.use(express.urlencoded({extended:true}));
 Request Object as strings or arrays. This method is called as a 
 middleware in your application using the code*/
 app.use(cookieParser());
-app.use(express.static('./assets'));  
+app.use(express.static(env.asset_path));
 // make the uploads paths available to browser
 app.use('/uploads', express.static(__dirname + '/uploads'))
 
