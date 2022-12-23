@@ -1,5 +1,6 @@
 const express = require('express');
 const env = require('./config/environment')
+const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const app  = express();
 const port = 8000;
@@ -28,6 +29,7 @@ console.log('chat server is listening on port 5000');
 const path = require('path');
 
 app.use(cors());
+if(env.name=='development'){
 app.use(sassMiddleware({
     src: path.join(__dirname, env.asset_path,'./scss'),
     dest: path.join(__dirname, env.asset_path,'./css'),
@@ -35,6 +37,7 @@ app.use(sassMiddleware({
     outputStyle: 'extended',
     prefix: '/css'
 }))
+}
 app.use(express.urlencoded({extended:true}));
 /* is a method inbuilt in express to recognize the incoming 
 Request Object as strings or arrays. This method is called as a 
@@ -43,18 +46,18 @@ app.use(cookieParser());
 app.use(express.static(env.asset_path));
 // make the uploads paths available to browser
 app.use('/uploads', express.static(__dirname + '/uploads'))
-
+app.use(logger(env.morgan.mode, env.morgan.options));
 app.use(expressLayouts);
 // extact style and scripts from subpages into the layout 
 app.set('layout extractStyles', true)
 app.set('layout extractScripts', true)
  
 app.set('view engine', 'ejs');
-app.set('views','./views')
+app.set('views','./views');
 
 app.use(session({
     name: 'codeial',
-    secret:'blahsomeone',
+    secret:env.session_cookie_key,
     saveUninitialized:false,
     resave:false,
     cookie:{
