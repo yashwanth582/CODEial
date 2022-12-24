@@ -27,7 +27,7 @@ console.log('chat server is listening on port 5000');
 //setup the chat server to be used with socket.io
 const path = require('path');
 app.use(cors());
-
+if(env.name == 'development'){
 app.use(sassMiddleware({
     src: path.join(__dirname, env.asset_path,'scss'),
     dest: path.join(__dirname, env.asset_path, 'css'),
@@ -35,6 +35,7 @@ app.use(sassMiddleware({
     outputStyle: 'extended',
     prefix: '/css'
 }))
+}
 app.use(express.urlencoded({extended:true}));
 /* is a method inbuilt in express to recognize the incoming 
 Request Object as strings or arrays. This method is called as a 
@@ -51,7 +52,7 @@ app.set('layout extractScripts', true)
  
 app.set('view engine', 'ejs');
 app.set('views','./views')
-
+ 
 app.use(session({
     name: 'codeial',
     secret:env.session_cookie_key,
