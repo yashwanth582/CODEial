@@ -1,9 +1,10 @@
 #layout-footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
   color: white;
   background: grey;
   padding: 5px 10px;
-  bottom: 0px;
-  position: fixed;
   display: flex;
   justify-content: flex-start; }
   #layout-footer a {
