@@ -4,9 +4,6 @@
   "css/header.css": "css/header-48f6df664e.css",
   "css/home.css": "css/home-a86bf84391.css",
   "css/layout.css": "css/layout-ad7fced993.css",
-  "css/user_profile.css": "css/user_profile-b992c588cb.css",
-  "js/chat_engine.js": "js/chat_engine-bc17f16ccb.js",
-  "js/home_posts.js": "js/home_posts-4f9a97000c.js",
-  "js/home_posts_comments.js": "js/home_posts_comments-1ba842acec.js",
-  "js/toggle_likes.js": "js/toggle_likes-0e3d81481c.js"
+  "css/ligin-page.css": "css/ligin-page-6e4493bddc.css",
+  "css/user_profile.css": "css/user_profile-34f965591e.css"
 }

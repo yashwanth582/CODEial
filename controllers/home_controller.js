@@ -30,4 +30,5 @@ module.exports.home = async function(req, res){
      }
    
 }
+
 // all the things like title , posts, all_users can be accessible from views

@@ -5,7 +5,8 @@ const logger  = require('morgan');
 const cookieParser = require('cookie-parser');
 const app  = express();
 require('./config/view-helpers')(app)
-const port = 8000;
+        // const port = 8000;
+const port = 27017;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose')
 const session = require('express-session');
@@ -14,8 +15,8 @@ const passportLocal = require('./config/passport-local-strategy');
 const passportJWT = require('./config/passport-jwt-strategy');
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
 const MongoStore = require('connect-mongodb-session')(session)
-const sassMiddleware = require('node-sass-middleware-5')
-const flash = require('connect-flash');
+// const sassMiddleware = require('node-sass-middleware-5')
+                    const flash = require('connect-flash');
 const customMiddleware = require('./config/middleware')
 const cors = require('cors');
  
@@ -30,15 +31,15 @@ console.log('chat server is listening on port 5000');
 //setup the chat server to be used with socket.io
 const path = require('path');
 app.use(cors());
-if(env.name == 'development'){
-app.use(sassMiddleware({
-    src: path.join(__dirname, env.asset_path,'scss'),
-    dest: path.join(__dirname, env.asset_path, 'css'),
-    debug: true,
-    outputStyle: 'extended',
-    prefix: '/css'
-}))
-}
+// if(env.name == 'development'){
+// app.use(sassMiddleware({
+                            //     src: path.join(__dirnamenv.asset_path,'scss'),
+//     dest: path.join(__dirname, env.asset_path, 'css'),
+//     debug: true,
+//     outputStyle: 'extended',
+//     prefix: '/css'
+// }))
+// }
 app.use(express.urlencoded({extended:true}));
 /* is a method inbuilt in express to recognize the incoming 
 Request Object as strings or arrays. This method is called as a 
@@ -64,13 +65,15 @@ app.use(session({
     cookie:{
         maxAge: (1000 * 60 * 100)
     },
-    store: new MongoStore({
-        // mongooseConnection:db 
-        mongoUrl: db._connectionString, 
-        autoRemove: 'disabled'
-    }, function(err){
-        console.log(err || 'connect-mongo setup ok')
-    })
+    // store: new MongoStore({
+    //     mongooseConnection:db,
+    //     // mongoUrl: db._connectionString,
+    //     mongoUrl: 'mongodb+srv://94818yashwanth:Yash@2020@cluster0.z0jwq7r.mongodb.net/?retryWrites=true&w=majority', 
+    //     autoRemove: 'native'
+    // }, function(err){
+    //     console.log(err || 'connect-mongo setup ok')
+    // })
+    // mongodb://localhost/codeial_development
 }));
 
 app.use(passport.initialize());

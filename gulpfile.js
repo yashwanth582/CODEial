@@ -3,7 +3,7 @@ const sass = require('gulp-sass')(require('sass'));
 const cssnano = require('gulp-cssnano');
 const rev = require('gulp-rev')
 const uglify = require('gulp-uglify-es').default;
-const del = require('del-cli')
+// const del = require('del-cli')
 
 gulp.task('css', function(done){
     console.log("Minifying css...");
